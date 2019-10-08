@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , buildPythonPackage
 , pythonAtLeast
 , fetchFromGitHub
@@ -21,7 +21,7 @@ buildPythonPackage rec {
   pname = "aioinflux";
   version = "0.9.0";
 
-  #disabled = !(pythonAtLeast "3.6");
+  disabled = !(pythonAtLeast "3.6");
 
   src = fetchFromGitHub {
     owner = "gusutabopb";
@@ -45,10 +45,11 @@ buildPythonPackage rec {
     pandas
   ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Python client for InfluxDB";
     homepage = https://github.com/influxdb/influxdb-python;
     license = licenses.mit;
+    maintainers = with maintainers; [ liamdiprose ];
   };
 
 }
