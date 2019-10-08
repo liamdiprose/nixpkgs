@@ -1,0 +1,31 @@
+{ stdenv
+, buildPythonPackage
+, fetchFromGitHub
+, pytz
+# TODO: Unittest2 if py < '3'
+}:
+
+buildPythonPackage rec {
+  pname = "ciso8601";
+  version = "2.1.1";
+
+  src = fetchFromGitHub {
+    owner = "closeio";
+    repo = "ciso8601";
+    rev = "v${version}";
+    sha256 = "143b6mqhjnggvcd0wwbaj6k5g9820whx2q94145cb5bqgwq1lc5m";
+  };
+
+  propagatedBuildInputs = [ pytz ];
+
+  checkInputs = [
+    pytz
+  ];
+
+  meta = with stdenv.lib; {
+    description = "Python client for InfluxDB";
+    homepage = https://github.com/influxdb/influxdb-python;
+    license = licenses.mit;
+  };
+
+}

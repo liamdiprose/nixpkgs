@@ -157,6 +157,8 @@ in {
 
   aioimaplib = callPackage ../development/python-modules/aioimaplib { };
 
+  aioinflux = callPackage ../development/python-modules/aioinflux { };
+
   aiolifx = callPackage ../development/python-modules/aiolifx { };
 
   aiolifx-effects = callPackage ../development/python-modules/aiolifx-effects { };
@@ -1609,6 +1611,8 @@ in {
   cmarkgfm = callPackage ../development/python-modules/cmarkgfm { };
 
   circus = callPackage ../development/python-modules/circus {};
+
+  ciso8601 = callPackage ../development/python-modules/ciso8601 { };
 
   colorcet = callPackage ../development/python-modules/colorcet { };
 
