@@ -1,8 +1,9 @@
-{ stdenv
+{ lib
 , buildPythonPackage
+, isPy27
 , fetchFromGitHub
 , pytz
-# TODO: Unittest2 if py < '3'
+, unittest2
 }:
 
 buildPythonPackage rec {
@@ -18,11 +19,10 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [ pytz ];
 
-  checkInputs = [
-    pytz
-  ];
+  checkInputs = [ pytz ]
+   ++ lib.optional isPy27 unittest2;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Python client for InfluxDB";
     homepage = https://github.com/influxdb/influxdb-python;
     license = licenses.mit;
