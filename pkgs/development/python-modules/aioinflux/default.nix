@@ -50,7 +50,7 @@ buildPythonPackage rec {
   ];
 
   meta = with lib; {
-    description = "Python client for InfluxDB";
+    description = "Asynchronous Python client for InfluxDB";
     homepage = https://github.com/influxdb/influxdb-python;
     license = licenses.mit;
     maintainers = with maintainers; [ liamdiprose ];
